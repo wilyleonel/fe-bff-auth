@@ -41,10 +41,11 @@ export const authService = {
 
     checkAuth: async (): Promise<boolean> => {
         try {
-            console.log('checkAuth');
-            await authApi.get('/auth/me');
+            const result = await authApi.get('/auth/me');
+            console.log('checkAuth result:', result.data);
             return true;
-        } catch {
+        } catch (err: any) {
+            console.error('checkAuth error:', err.response?.status, err.response?.data);
             return false;
         }
     },

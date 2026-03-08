@@ -66,28 +66,53 @@ const DashboardPage = () => {
                         </div>
                     </section>
 
-                    {/* API Test */}
-                    <aside className="bg-slate-900 border border-slate-800 rounded-lg p-8 lg:p-12">
-                        <h3 className="text-xl lg:text-2xl font-medium mb-6">
-                            API
-                        </h3>
+                    {/* API Test & Navigation */}
+                    <div className="space-y-8">
+                        <aside className="bg-slate-900 border border-slate-800 rounded-lg p-8 lg:p-12">
+                            <h3 className="text-xl lg:text-2xl font-medium mb-6">
+                                API
+                            </h3>
 
-                        <p className="text-base lg:text-lg text-slate-300 mb-6">
-                            Endpoint protegido del BFF
-                        </p>
+                            <p className="text-base lg:text-lg text-slate-300 mb-6">
+                                Endpoint protegido del BFF
+                            </p>
 
-                        <button
-                            onClick={() =>
-                                window.open(
-                                    'http://localhost:3001/auth/profile',
-                                    '_blank'
-                                )
-                            }
-                            className="px-6 py-3 rounded-md bg-emerald-600 hover:bg-emerald-700 text-base font-medium"
-                        >
-                            Ver perfil en API
-                        </button>
-                    </aside>
+                            <button
+                                onClick={() =>
+                                    window.open(
+                                        'http://localhost:4000/auth/profile',
+                                        '_blank'
+                                    )
+                                }
+                                className="px-6 py-3 rounded-md bg-emerald-600 hover:bg-emerald-700 text-base font-medium"
+                            >
+                                Ver perfil en API
+                            </button>
+                        </aside>
+
+                        {/* Navigation Cards */}
+                        <aside className="bg-slate-900 border border-slate-800 rounded-lg p-8 lg:p-12">
+                            <h3 className="text-xl lg:text-2xl font-medium mb-6">
+                                Microservicios
+                            </h3>
+                            <div className="space-y-4 flex flex-col">
+                                <button
+                                    onClick={() => window.location.href = '/products'}
+                                    className="px-6 py-4 rounded-md border border-slate-700 bg-slate-800 hover:bg-slate-700 text-xl font-medium text-left flex justify-between items-center transition-colors text-emerald-400 group"
+                                >
+                                    <span>Ver Productos</span>
+                                    <span className="text-sm opacity-50 group-hover:opacity-100 transition-opacity">/products</span>
+                                </button>
+                                <button
+                                    onClick={() => window.location.href = '/company'}
+                                    className="px-6 py-4 rounded-md border border-slate-700 bg-slate-800 hover:bg-slate-700 text-xl font-medium text-left flex justify-between items-center transition-colors text-blue-400 group"
+                                >
+                                    <span>Perfil de Compañía</span>
+                                    <span className="text-sm opacity-50 group-hover:opacity-100 transition-opacity">/company</span>
+                                </button>
+                            </div>
+                        </aside>
+                    </div>
                 </div>
             </main>
         </div>
@@ -95,4 +120,3 @@ const DashboardPage = () => {
 };
 
 export default DashboardPage;
- 

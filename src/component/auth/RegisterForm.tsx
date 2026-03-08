@@ -74,73 +74,75 @@ export const RegisterForm = ({ onSuccess }: RegisterFormProps) => {
     };
 
     return (
-        <form onSubmit={handleSubmit} className="space-y-5">
+        <form onSubmit={handleSubmit} className="space-y-6">
             {error && (
-                <div className="bg-red-950/50 border border-red-900/50 text-red-400 px-4 py-3 rounded-lg text-sm">
+                <div className="bg-[#FF003C]/10 border border-[#FF003C]/30 text-[#FF003C] px-4 py-3 rounded-xl text-xs font-mono tracking-widest text-center">
                     {error}
                 </div>
             )}
             {success && (
-                <div className="bg-green-950/50 border border-green-900/50 text-green-400 px-4 py-3 rounded-lg text-sm">
+                <div className="bg-[#00FF41]/10 border border-[#00FF41]/30 text-[#00FF41] px-4 py-3 rounded-xl text-xs font-mono tracking-widest text-center">
                     {success}
                 </div>
             )}
 
-            <div>
-                <label className="block text-sm font-medium text-slate-300 mb-1.5">Nombre Completo</label>
-                <input
-                    type="text"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    className="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors"
-                    placeholder="Tu nombre"
-                    required
-                />
-            </div>
+            <div className="space-y-4">
+                <div>
+                    <label className="block text-[10px] font-mono tracking-widest text-gray-500 mb-2 uppercase">Identificación de Nodo [Nombre]</label>
+                    <input
+                        type="text"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        className="w-full bg-[#050505] border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#00BFFF]/50 focus:ring-1 focus:ring-[#00BFFF]/50 transition-colors placeholder:text-gray-700 text-sm font-mono"
+                        placeholder="ej. Operador Alpha"
+                        required
+                    />
+                </div>
 
-            <div>
-                <label className="block text-sm font-medium text-slate-300 mb-1.5">Email</label>
-                <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors"
-                    placeholder="nombre@ejemplo.com"
-                    required
-                />
-            </div>
+                <div>
+                    <label className="block text-[10px] font-mono tracking-widest text-gray-500 mb-2 uppercase">Canal de Comunicación [Email]</label>
+                    <input
+                        type="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        className="w-full bg-[#050505] border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#00BFFF]/50 focus:ring-1 focus:ring-[#00BFFF]/50 transition-colors placeholder:text-gray-700 text-sm font-mono"
+                        placeholder="alpha@sistema.net"
+                        required
+                    />
+                </div>
 
-            <div>
-                <label className="block text-sm font-medium text-slate-300 mb-1.5">Contraseña</label>
-                <input
-                    type="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    className="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors"
-                    placeholder="Mínimo 8 caracteres"
-                    required
-                    minLength={8}
-                />
-            </div>
+                <div>
+                    <label className="block text-[10px] font-mono tracking-widest text-gray-500 mb-2 uppercase">Clave de Cifrado [Password]</label>
+                    <input
+                        type="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        className="w-full bg-[#050505] border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#00BFFF]/50 focus:ring-1 focus:ring-[#00BFFF]/50 transition-colors placeholder:text-gray-700 text-sm font-mono"
+                        placeholder="Mínimo 8 caracteres"
+                        required
+                        minLength={8}
+                    />
+                </div>
 
-            <div>
-                <label className="block text-sm font-medium text-slate-300 mb-1.5">Confirmar Contraseña</label>
-                <input
-                    type="password"
-                    value={confirmPassword}
-                    onChange={(e) => setConfirmPassword(e.target.value)}
-                    className="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors"
-                    placeholder="Repite la contraseña"
-                    required
-                />
+                <div>
+                    <label className="block text-[10px] font-mono tracking-widest text-gray-500 mb-2 uppercase">Verificar Clave</label>
+                    <input
+                        type="password"
+                        value={confirmPassword}
+                        onChange={(e) => setConfirmPassword(e.target.value)}
+                        className="w-full bg-[#050505] border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-[#00BFFF]/50 focus:ring-1 focus:ring-[#00BFFF]/50 transition-colors placeholder:text-gray-700 text-sm font-mono"
+                        placeholder="Repite la clave"
+                        required
+                    />
+                </div>
             </div>
 
             <button
                 type="submit"
                 disabled={loading}
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed mt-4"
+                className="w-full bg-[#00BFFF] hover:bg-[#0099cc] text-black font-bold py-3.5 rounded-xl transition-colors disabled:opacity-50 disabled:cursor-not-allowed mt-6 text-sm flex justify-center items-center gap-2"
             >
-                {loading ? 'Creando cuenta...' : 'Registrarse'}
+                {loading ? 'ENSAMBLANDO NODO...' : 'REGISTRAR NODO'}
             </button>
         </form>
     );

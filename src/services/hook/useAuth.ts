@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-import { authService,   } from '../api/auth.service';
+import { authService, } from '../api/auth.service';
 import type { IUserProfile } from '../api/auth.interface.dto';
 
 export const useAuth = () => {
@@ -12,8 +12,8 @@ export const useAuth = () => {
         try {
             setLoading(true);
             setError(null);
-            const userData = await authService.login({ email, password });
-            setUser(userData);
+            await authService.login({ email, password });
+            const userData = await fetchProfile();
             return userData;
         } catch (err: unknown) {
             if (
@@ -27,7 +27,7 @@ export const useAuth = () => {
                 setError('Error de autenticación');
             }
             throw err;
-        }finally {
+        } finally {
             setLoading(false);
         }
 
